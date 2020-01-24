@@ -1,32 +1,40 @@
 <template>
   <v-app>
-    <div class="container">
-      <v-card width="1000">
-        <v-row>
-          <v-col cols="5" class="mx-auto">
-            <img src="./assets/drake.jpg" class="akinator" alt="drake">
-            <SpeechToText class="app__stt-button" />
-            <v-text-field label="Your text"></v-text-field>
-          </v-col>
-        </v-row>
-      </v-card>
-    </div>
+    <LyricsInput v-if="!lyricsType"/>
+    <v-card width="1000" v-else>
+      <v-row>
+        <v-col cols="5" class="mx-auto">
+          <img src="./assets/drake.jpg" class="akinator" alt="drake">
+            <SpeechToText v-if="lyricsType === 'micro'"/>
+            <TextInput v-else/>
+        </v-col>
+      </v-row>
+    </v-card>
   </v-app>
 </template>
 
 <script>
 import SpeechToText from './components/SpeechToText.vue';
+import LyricsInput from './components/LyricsInput.vue';
+import TextInput from './components/TextInput.vue';
+
+import { mapGetters } from 'vuex';
 export default {
   name: "App",
 
   components: {
-    SpeechToText
+    SpeechToText,
+    LyricsInput,
+    TextInput
   },
 
   data() {
     return {
     }
   },
+  computed: {
+    ...mapGetters(['lyricsType'])
+  }
 };
 </script>
 
