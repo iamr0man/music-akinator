@@ -24,7 +24,7 @@ export default {
         mode:"no-cors"
       }
 
-      const result = await fetch(`https://akinator-docker.herokuapp.com/trackText/text=${lyrics}`,requestOptions)
+      const result = await fetch(`https://akinator-docker.herokuapp.com/trackText?text=${lyrics}`,requestOptions)
 
       const data = await result.json()
 
