@@ -39,14 +39,9 @@ export default {
             });
             this.recognitionEngine.start();
         },
-        async doSearch(){
-            // await fingSong({lyrics: this.speech})
-
-            this.$router.push({ path: '/akinator', params: {lyrics: this.speech}})
-        }
     },
     computed: {
-        ...mapGetters('lyrics',['lyricsType',"propseSongs"])
+        ...mapGetters('lyrics',['lyricsType',"proposeSongs"])
     }
 };
 </script>

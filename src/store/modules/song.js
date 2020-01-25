@@ -1,27 +1,31 @@
 export default {
   namespaced: true,
   state: {
-    proposeSongs: {}
+    proposeSong: {
+      artist: 'Travis Scott',
+      title: 'Nightclawer',
+      link: 'https://www.youtube.com/watch?v=JPY6lQjokYs'
+    }
   },
   mutations: {
     SET_SONG(state, result){
-      state.proposeSongs = result
+      state.proposeSong = result
     }
   },
   actions: {
     async findSong({ commit }, lyrics) {
-      debugger
-      const result = await fetch(`https://akinator-docker.herokuapp.com/trackText/text=${lyrics}`)
+      const result = await fetch(`https://akinator-docker.herokuapp.com/trackText/text=${lyrics}`,{
+        mode:"no-cors"
+      })
 
       const data = await result.json()
 
       if(data) {
         commit('SET_SONG', data.result[0])
-        return data.result[0]
       }
     }
   },
   getters: {
-    proposeSongs: state => state.proposeSongs
+    proposeSong: state => state.proposeSongs
   }
 }

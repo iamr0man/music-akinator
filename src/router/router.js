@@ -1,10 +1,9 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-import store from '../store/index'
-
 import Main from '../views/Main.vue'
 import Game from '../views/Game.vue'
+import Signup from '../views/Signup.vue'
 import NotFound from '../views/NotFound.vue'
 
 Vue.use(VueRouter);
@@ -16,23 +15,14 @@ const routes = [
     component: Main
   },
   {
-    path: '/akinator',
+    path: '/game',
     name: 'Game',
     component: Game,
-    props: true,
-    beforeEnter(to, from, next){
-      store
-        .dispatch("song/findSong", to.params.lyrics)
-        .then(result => {
-          to.params.result = result
-          next()
-        })
-        .catch(error => {
-          if(error.response && error.response.status === 404) {
-            next({ name:"404"})
-          }
-        })
-    }
+  },
+  {
+    path: "/signup",
+    name: "signup",
+    component: Signup
   },
   {
     path: "/404",

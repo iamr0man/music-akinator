@@ -21,7 +21,7 @@
           >
         </div>
       <p class="gray mt-12">
-        <v-icon>mdi-alert-octagon</v-icon>If you choose micro - it will be record immediately
+        <v-icon>mdi-alert-octagon</v-icon>Mirco record english speech
       </p>      
       </div>
     </div>

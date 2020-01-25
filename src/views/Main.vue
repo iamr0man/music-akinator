@@ -1,9 +1,9 @@
 <template>
-  <div class="">
+  <div class="d-flex juctify-center align-center height">
     <LyricsInput v-if="!lyricsType"/>
-    <v-card width="1000" v-else>
+    <v-card class="mx-auto" width="80%" color="#F5F5F5" v-else>
       <v-row>
-        <v-col cols="5" class="mx-auto">
+        <v-col cols="5" class="mx-auto d-flex flex-column align-center">
           <img src="../assets/drake.jpg" class="akinator" alt="drake">
             <SpeechToText v-if="lyricsType === 'micro'"/>
             <TextInput v-else/>
@@ -39,6 +39,9 @@ export default {
 </script>
 
 <style lang="scss">
+.height {
+  height: 100vh;
+}
 .akinator {
   width: 135px;
 }
