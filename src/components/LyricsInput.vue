@@ -6,7 +6,7 @@
           <v-btn
             text
             icon
-            color="blue-grey"
+            color="indigo"
             :x-large="true"
             @click="changeLyricsType('micro')"
             ><v-icon>mdi-microphone</v-icon></v-btn
@@ -14,14 +14,14 @@
           <v-btn
             text
             icon
-            color="blue-grey"
+            color="indigo"
             :x-large="true"
             @click="changeLyricsType('keyboard')"
             ><v-icon>mdi-keyboard</v-icon></v-btn
           >
         </div>
       <p class="gray mt-12">
-        <v-icon>mdi-alert-octagon</v-icon>If you choose micro - it will be reccord immediately
+        <v-icon>mdi-alert-octagon</v-icon>If you choose micro - it will be record immediately
       </p>      
       </div>
     </div>
@@ -36,7 +36,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["changeLyricsType"])
+    ...mapActions('lyrics', ["changeLyricsType"])
   }
 }
 </script>
