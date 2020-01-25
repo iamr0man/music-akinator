@@ -1,3 +1,5 @@
+import { authHeader } from "../../services/auth-header";
+
 export default {
   namespaced: true,
   state: {
@@ -14,9 +16,15 @@ export default {
   },
   actions: {
     async findSong({ commit }, lyrics) {
-      const result = await fetch(`https://akinator-docker.herokuapp.com/trackText/text=${lyrics}`,{
+      const headers = new Headers()
+      headers.append('Authorization', authHeader())
+
+      const requestOptions = {
+        headers,
         mode:"no-cors"
-      })
+      }
+
+      const result = await fetch(`https://akinator-docker.herokuapp.com/trackText/text=${lyrics}`,requestOptions)
 
       const data = await result.json()
 
