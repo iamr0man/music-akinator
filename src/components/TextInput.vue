@@ -1,7 +1,8 @@
 <template>
   <div class="wrapper">
     <v-text-field label="Your text" v-model="lyrics"></v-text-field>
-    <v-btn class="ma-2" color="indigo" dark v-show="lyrics" @click="findSong(lyrics)">?Propose?</v-btn>  
+    <v-btn class="ma-2" color="indigo" dark v-show="lyrics" @click="findSong(lyrics)">?Propose?</v-btn>
+    <router-link to="/game">gamebeta</router-link>
   </div>
 </template>
 

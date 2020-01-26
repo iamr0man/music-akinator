@@ -5,7 +5,7 @@
             <v-text-field label="Login" v-model="login" />
             <v-text-field label="Password" v-model="password" />
             <div class="d-flex flex-column">
-                <p class="mr-2"><router-link to="/signup">Create Account</router-link> instead?</p>
+                <p class="mr-2"><router-link to="/">Create Account</router-link> instead?</p>
             </div>
         </v-card-text>
         <v-card-actions>

@@ -29,11 +29,13 @@ export default {
       },
       async doLogin({ commit }, { username, password}) {
         const headers = new Headers()
+        headers.append('Accept', 'text/plain;charset=UTF-8');
         headers.append('Authorization', `Basic ` + btoa(`${username}:${password}`))
 
         const requstOptions ={
           headers,
-          mode: 'no-cors'
+          mode: 'no-cors',
+          credentials: 'include'
         }
 
         const user = await fetch(`https://akinator-docker.herokuapp.com/test`, requstOptions)
@@ -45,6 +47,6 @@ export default {
       }
     },
     getters: {
-      proposeSongs: state => state.proposeSongs
+      user: state => state.user
     }
   }

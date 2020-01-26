@@ -17,11 +17,13 @@ export default {
   actions: {
     async findSong({ commit }, lyrics) {
       const headers = new Headers()
+      headers.append('Accept', 'application/json');
       headers.append('Authorization', authHeader())
 
       const requestOptions = {
         headers,
-        mode:"no-cors"
+        mode:"no-cors",
+        credentials: 'include'
       }
 
       const result = await fetch(`https://akinator-docker.herokuapp.com/trackText?text=${lyrics}`,requestOptions)

@@ -7,6 +7,7 @@
             >Sing again</v-btn>
         </div>
         <v-btn class="ma-2" color="indigo" dark v-show="speech" @click="findSong(speech)">?Propose?</v-btn>
+        <router-link to="/game">gamebeta</router-link>
     </div>
 </template>
 

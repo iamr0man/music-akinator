@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 
 import Main from '../views/Main.vue'
 import Game from '../views/Game.vue'
+import Winner from '../views/Winner.vue'
 import Signup from '../views/Signup.vue'
 import Unauthorized from '../views/Unauthorized.vue'
 import NotFound from '../views/NotFound.vue'
@@ -17,13 +18,18 @@ const routes = [
   },
   {
     path: '/game',
-    name: 'Game',
+    name: 'game',
     component: Game,
   },
   {
     path: "/main",
     name: "main",
     component: Main
+  },
+  {
+    path: "/winner",
+    name: "winner",
+    component: Winner
   },
   {
     path: "/unauthorized",

@@ -12,6 +12,7 @@
       <v-btn
           color="indigo"
           dark
+          @click="putWinner('Akinator')"
         >
           <v-icon>mdi-check-circle-outline</v-icon>
         </v-btn>
@@ -25,6 +26,7 @@
       <v-btn
           color="indigo"
           dark
+          @click="putWinner(user.username)"
         >
           <v-icon>mdi-close-circle-outline</v-icon>
         </v-btn>
@@ -34,9 +36,10 @@
 </template>
 
 <script>
+import router from '../router/router'
 import 'vue-lazy-youtube-video/dist/style.css'
 import LazyYoutubeVideo from 'vue-lazy-youtube-video'
-import { mapState } from 'vuex'
+import { mapActions, mapGetters, mapState } from 'vuex'
 
 export default {
   components:{
@@ -48,13 +51,22 @@ export default {
     }
   },
   computed: {
+    ...mapGetters(
+      'user', ['user']),
     ...mapState('song',["proposeSong"])
+  },
+  methods: {
+    ...mapActions('winner', ['setWinner']),
+    async putWinner(e) {
+      await this.setWinner({winner: e})
+      router.push('/winner')
+    }
   }
 }
 </script>
 
 <style>
-  .song-block {
+  /* .song-block {
 
-  }
+  } */
 </style>

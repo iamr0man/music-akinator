@@ -3,6 +3,7 @@ import Vuex from "vuex";
 import lyrics from './modules/lyrics'
 import song from './modules/song'
 import user from './modules/user'
+import winner from './modules/winner'
 
 Vue.use(Vuex);
 
@@ -13,6 +14,7 @@ export default new Vuex.Store({
   modules: {
     lyrics,
     song,
-    user
+    user,
+    winner
   }
 });
